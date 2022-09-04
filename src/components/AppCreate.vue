@@ -2,7 +2,9 @@
   <v-container style="position: absolute; height: 100%;">
       <v-layout align-center justify-center style="position: sticky; top: 35%; z-index: 999;">
         <v-flex xs12 sm8 md4>
-          <v-card elevation="15" v-click-outside="hiddenPopup">
+          <v-card elevation="15"
+                  v-click-outside="hiddenPopup"
+                  @keydown.esc="hiddenPopup">
             <v-toolbar elevation="0">
               Create folder<v-spacer/>
               <v-btn plain @click="hiddenPopup">

@@ -13,12 +13,18 @@
           <v-col
               v-for="folder in folders"
               :key="folder.name"
+              v-bind:id="folder.id"
               cols="1"
+              v-click-outside="hiddenPopup"
+              @keydown.esc="hiddenPopup"
+              @contextmenu.prevent="handler"
+              @click.right="folderName=folder.name"
+
           >
             <v-btn plain style="height: 100%">
               <div style="display: flex; flex-direction: column;">
                 <v-icon x-large>folder</v-icon>
-                <span>{{ folder.name }} </span>
+                <span>{{ folder.name }}</span>
               </div>
             </v-btn>
           </v-col>
@@ -53,6 +59,25 @@
           </template>
         </v-simple-table>
       </div>
+      <div v-if="context" class="context">
+        <v-card
+            class="mx-auto"
+            max-width="300"
+            tile
+        >
+          <v-list>
+            <v-subheader>{{ folderName }}</v-subheader>
+            <v-list-item-group>
+              <v-list-item>
+                Edit
+              </v-list-item>
+              <v-list-item>
+                Remove
+              </v-list-item>
+            </v-list-item-group>
+          </v-list>
+        </v-card>
+      </div>
     </v-container>
   </v-main>
 </template>
@@ -64,4 +89,8 @@
 .blackout {
   background: rgba(0, 0, 0, 0.7)
 }
+.context {
+  position: absolute;
+}
+
 </style>

@@ -19,7 +19,7 @@
       </v-navigation-drawer>
     </div>
     <div>
-      <v-toolbar app>
+      <v-app-bar app>
         <v-btn plain @click="drawer = !drawer" class="hidden-md-and-up">
           <v-icon>fas fa-list</v-icon>
         </v-btn>
@@ -33,7 +33,7 @@
             Log out
           </v-btn>
         </v-toolbar-items>
-      </v-toolbar>
+      </v-app-bar>
     </div>
   </div>
 </template>
