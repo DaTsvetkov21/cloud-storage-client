@@ -1,32 +1,21 @@
 import '@fortawesome/fontawesome-free/css/all.css'
 
 export default {
-    data(){
+    data() {
         return {
             drawer: false,
             token: localStorage.getItem('token')
         }
     },
     methods: {
-      removeToken() {
-          localStorage.removeItem('token');
-          this.$router.go(0);
-      }
+        removeToken() {
+            localStorage.removeItem('token');
+            this.$router.go(0);
+        }
     },
-    computed:{
+    computed: {
         headerButton() {
-            return[
-                {
-                    icon: 'login',
-                    title: 'Sing in',
-                    route: '/singin'
-                },
-                {
-                    icon: 'lock_open',
-                    title: 'Sing up',
-                    route: '/singup',
-
-                },
+            return [
                 {
                     icon: 'logout',
                     title: 'Log out',
